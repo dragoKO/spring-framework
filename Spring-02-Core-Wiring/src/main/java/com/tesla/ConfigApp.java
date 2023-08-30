@@ -16,6 +16,7 @@ public class ConfigApp {
 //    }
 
     //    Auto wiring
+
     @Bean
     Tesla tesla(Engine engine) {
         return new Tesla(2022, "X", engine);
