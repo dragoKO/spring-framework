@@ -1,4 +1,4 @@
-package com.cydeo.loosely_coupled;
+package com.microsoft.loosely_coupled;
 
 public class FullTimeMentor implements Mentor{
     public void createAccount() {
