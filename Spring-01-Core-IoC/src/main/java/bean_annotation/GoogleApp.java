@@ -8,10 +8,10 @@ public class GoogleApp {
 
         ApplicationContext container = new AnnotationConfigApplicationContext(ConfigApp.class, ConfigAny.class);
 
-        FullTimeEmployee ft = container.getBean(FullTimeEmployee.class);
+        FullTimeEmployee ft = container.getBean( FullTimeEmployee.class);
         ft.createAccount();
 
-        PartTimeEmployee pt = container.getBean(PartTimeEmployee.class);
+        PartTimeEmployee pt = container.getBean("partTimeEmployee2", PartTimeEmployee.class);
         pt.createAccount();
 
         String str = container.getBean(String.class);
@@ -19,6 +19,8 @@ public class GoogleApp {
 
         Integer integer = container.getBean(Integer.class);
         System.out.println(integer);
+
+        System.out.println("===================================================================");
 
 
     }
