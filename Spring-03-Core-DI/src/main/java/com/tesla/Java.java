@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor // if only 1 constructor injection will be done automatically
+@AllArgsConstructor // if only 1 constructor injection will be done automatically (but u must assign value to the object in this constructor)
 public class Java {
 
     //Field Injection
