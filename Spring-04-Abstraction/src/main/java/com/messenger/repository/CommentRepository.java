@@ -1,4 +1,4 @@
-package com.messenger.repositiry;
+package com.messenger.repository;
 
 import com.messenger.model.Comment;
 
