@@ -13,6 +13,7 @@ import java.util.Objects;
 
 public class MessengerApp {
     public static void main(String[] args) {
+
         Comment comment = new Comment("Bill Gates", "Hi! Microsoft!");
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ProjectConfig.class);
