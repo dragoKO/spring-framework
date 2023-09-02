@@ -1,12 +1,15 @@
 package stereotypePractice.model;
 
-import lombok.AllArgsConstructor;
+
+import lombok.Data;
+import lombok.NonNull;
 import org.springframework.stereotype.Component;
 
-@AllArgsConstructor // dependency injection. Done automatically with @AllArgsConstructor -> only if we have one constructor.
+@Data // dependency injection. Done automatically with @AllArgsConstructor -> only if we have one constructor.
 @Component
 public class DataStructure {
     private final int hours = 100;
+    @NonNull
     ExtraHours extraHours;
 
     public void getTotalHours() {
