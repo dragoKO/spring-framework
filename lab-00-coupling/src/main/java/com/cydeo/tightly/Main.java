@@ -1,5 +1,4 @@
-package com.cydeo;
-import com.cydeo.tightly.BalanceService;
+package com.cydeo.tightly;
 
 import java.math.BigDecimal;
 import java.util.UUID;
