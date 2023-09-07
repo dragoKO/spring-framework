@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping("/home")
+    @RequestMapping("/home") // find HTTP path
     public String home(){
         return "home.html";
     }
@@ -15,5 +15,13 @@ public class HomeController {
     public String welcome(){
         return "welcome.html";
     }
+
+//  @RequestMapping("/")
+    @RequestMapping()
+    public String basePage(){
+        return "basePage.html";
+    }
+
+
 }
 
