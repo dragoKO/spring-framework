@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.15</version>
+        <version>2.6.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.google</groupId>
-    <artifactId>Spring_08_Spring_MVC_Model</artifactId>
+    <groupId>com.cydeo</groupId>
+    <artifactId>Spring-08-Spring-MVC-Model</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Spring_08_Spring_MVC_Model</name>
-    <description>Spring_08_Spring_MVC_Model</description>
+    <name>Spring-08-Spring-MVC-Model</name>
+    <description>Spring-08-Spring-MVC-Model</description>
     <properties>
         <java.version>11</java.version>
     </properties>
