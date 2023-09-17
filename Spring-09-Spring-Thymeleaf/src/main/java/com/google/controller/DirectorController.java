@@ -22,7 +22,7 @@ public class DirectorController {
     @PostMapping("/register")
     public String formFilled(@ModelAttribute("mentor") Director director, Model model) {
         System.out.println(director);
-        model.addAttribute("director", new Director());
+        model.addAttribute("director", director);
 
         return "director/director-confirmation";
     }
