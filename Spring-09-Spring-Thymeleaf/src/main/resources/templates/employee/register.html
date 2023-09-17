@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Employee register</title>
+    <title th:text="#{index.page.title}"></title>
 </head>
 <body>
 <h1>Welcome new Employee</h1>
@@ -28,12 +28,16 @@
 </ul>
 
 <br>
+<!--conditional logic-->
+<div>
+    <span th:text="${employees.get(0).age>25?'ELIGIBLE':'NOT ELIGIBLE'}"></span>
+    <span th:text="${employees.get(2).age>25?'ELIGIBLE':'NOT ELIGIBLE'}"></span>
+</div>
 
-
-
-
-
-
+<div>
+    <span th:if="${employees.get(0).getState()=='Arizona'}">Arizona</span>
+    <span th:unless="${employees.get(0).getState()=='Arizona'}">NOT Arizona</span>
+</div>
 
 
 </body>
