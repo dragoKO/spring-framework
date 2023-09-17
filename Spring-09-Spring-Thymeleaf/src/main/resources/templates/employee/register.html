@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Employee register</title>
+</head>
+<body>
+<h1>Welcome new Employee</h1>
+
+<h2 th:text="${employees.get(0).firstName}"></h2>
+
+<a th:href="@{https://www.google.com/}" target="_blank">Google</a>
+<br>
+<a th:href="@{/employees/welcome}">welcome page</a>
+
+<!--additional parameter to link-->
+<br>
+<a th:href="@{/employees/welcome(id=3)}">Link2</a>
+
+<br>
+<a th:href="@{/employee/welcome(id=${employees.get(0)})}">Link3</a>
+
+<br>
+<ul>
+    <li th:each="employee : ${employees}" th:text="${employee}"></li>
+</ul>
+
+
+
+
+
+
+
+
+</body>
+</html>
+</html>
