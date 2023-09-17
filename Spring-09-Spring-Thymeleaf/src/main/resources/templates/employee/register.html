@@ -13,11 +13,11 @@
 
 <a th:href="@{https://www.google.com/}" target="_blank">Google</a>
 <br>
-<a th:href="@{/employees/welcome}">welcome page</a>
+<a th:href="@{/employee/welcome}">welcome page</a>
 
 <!--additional parameter to link-->
 <br>
-<a th:href="@{/employees/welcome(id=3)}">Link2</a>
+<a th:href="@{/employee/welcome(id=3)}">Link2</a>
 
 <br>
 <a th:href="@{/employee/welcome(id=${employees.get(0)})}">Link3</a>
@@ -26,6 +26,8 @@
 <ul>
     <li th:each="employee : ${employees}" th:text="${employee}"></li>
 </ul>
+
+<br>
 
 
 
