@@ -1,12 +1,12 @@
-INSERT INTO employees(id, name)
-VALUES (1, 'Mike Smith');
+INSERT INTO employee(name)
+VALUES ( 'Mike Smith');
 
-INSERT INTO employees(id, name)
-VALUES (2, 'Pleh Koch');
+INSERT INTO employee(name)
+VALUES ( 'Pleh Koch');
 
-INSERT INTO employees(id, name)
-VALUES (3, 'Rostik Savhii');
+INSERT INTO employee(name)
+VALUES ( 'Rostik Savhii');
 
 
-INSERT INTO student(first_name,last_name,email,id)
-VALUES('o',' o','mike@cydeo.com',100);
+INSERT INTO students(first_name,last_name,email)
+VALUES('o',' o','mike@cydeo.com');
