@@ -14,6 +14,5 @@ import javax.persistence.*;
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @OneToOne(mappedBy = "department")
     private int id;
 }
