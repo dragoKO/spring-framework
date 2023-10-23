@@ -1,6 +1,4 @@
 package com.cydeo.entity;
-import com.cydeo.entity.BaseEntity;
-import com.cydeo.entity.Employee;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +15,7 @@ public class Department extends BaseEntity {
     private String department;
     private String division;
 
-    @OneToOne(mappedBy = "department") // will have only foreign key
+    @OneToOne(mappedBy = "department") // will have only foreign key im employee table
     private Employee employee;
 
     public Department(String department, String division) {

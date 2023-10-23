@@ -1,7 +1,5 @@
 package com.cydeo.entity;
 
-import com.cydeo.entity.BaseEntity;
-import com.cydeo.entity.Employee;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

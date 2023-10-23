@@ -26,7 +26,7 @@ public class Employee {
     @NotNull
     private LocalDate hiringDate;
     @ManyToOne
-    @JoinColumn(name="department_id")
+    @JoinColumn(name="department_id") // foreign key
     private Department department;
     @Enumerated(EnumType.STRING)
     private Gender gender;

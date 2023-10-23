@@ -1,7 +1,5 @@
 package com.cydeo.entity;
 
-import com.cydeo.entity.BaseEntity;
-import com.cydeo.entity.Department;
 import com.cydeo.enums.Gender;
 import lombok.Data;
 import lombok.NoArgsConstructor;
