@@ -16,13 +16,20 @@ import java.time.LocalDate;
 public class Payment extends BaseEntity {
     private BigDecimal amount;
     private LocalDate localDate;
+
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
+
     private long cartID;
-    private long customerId;
+
+    @ManyToOne
+    @JoinColumn
+    private Customer customer;
+
     @ManyToOne
     @JoinColumn
     private Merchant merchant;
+
     @OneToOne(cascade = CascadeType.PERSIST)
     private PaymentDetail paymentDetail;
 
@@ -31,6 +38,4 @@ public class Payment extends BaseEntity {
         this.localDate = localDate;
         this.paymentStatus = paymentStatus;
     }
-
-
 }
