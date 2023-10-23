@@ -1,14 +1,9 @@
 package com.cydeo.bootstrap;
 
 
-import com.cydeo.entity.Customer;
-import com.cydeo.entity.Merchant;
-import com.cydeo.entity.Payment;
-import com.cydeo.entity.PaymentDetail;
+import com.cydeo.entity.*;
 import com.cydeo.enums.PaymentStatus;
-import com.cydeo.repository.CustomerRepository;
-import com.cydeo.repository.MerchantRepository;
-import com.cydeo.repository.PaymentRepository;
+import com.cydeo.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -25,11 +20,15 @@ public class DataGenerator implements CommandLineRunner {
     private final PaymentRepository paymentRepository;
     private final MerchantRepository merchantRepository;
     private final CustomerRepository customerRepository;
+    private final ItemRepository itemRepository;
+    private final CartRepository cartRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, CustomerRepository customerRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, CustomerRepository customerRepository, ItemRepository itemRepository, CartRepository cartRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
         this.customerRepository = customerRepository;
+        this.itemRepository = itemRepository;
+        this.cartRepository = cartRepository;
     }
 
     @Override
@@ -38,6 +37,16 @@ public class DataGenerator implements CommandLineRunner {
 
         Customer c1 = new Customer("Philly", "philly@gmail.com", "Tont", "Montana", "user_1");
         Customer c2 = new Customer("Philly_2", "philly@gmail.comPhilly_2", "TontPhilly_2", "MontanaPhilly_2", "user_2");
+
+        Item i1 = new Item("Milk", "1");
+        Item i2 = new Item("Vodka", "2");
+        Item i3 = new Item("Sugar", "3");
+
+        Cart cart = new Cart();
+        Cart cart2 = new Cart();
+        cart.setItems(Arrays.asList(i1, i2, i3));
+        cart2.setItems(Arrays.asList(i1, i3));
+
 
         Payment p1 = new Payment(new BigDecimal("100.25"), LocalDate.now(), PaymentStatus.PASS);
         p1.setPaymentDetail(new PaymentDetail(new BigDecimal("10.2"), new BigDecimal("13"), LocalDate.now()));
@@ -56,6 +65,9 @@ public class DataGenerator implements CommandLineRunner {
         p2.setCustomer(c2);
         p3.setCustomer(c1);
 
+        p1.setCart(cart);
+        p2.setCart(cart2);
+
 
         List<Payment> payments = new ArrayList<>(
                 Arrays.asList(
@@ -63,6 +75,9 @@ public class DataGenerator implements CommandLineRunner {
                 )
         );
 
+
+        itemRepository.saveAll(Arrays.asList(i1, i2, i3));
+        cartRepository.saveAll(Arrays.asList(cart,cart2));
         customerRepository.saveAll(Arrays.asList(c1, c2));
         merchantRepository.save(merchant);
         paymentRepository.saveAll(payments);

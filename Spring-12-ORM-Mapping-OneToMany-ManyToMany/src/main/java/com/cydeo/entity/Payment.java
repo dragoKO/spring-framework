@@ -20,7 +20,8 @@ public class Payment extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
 
-    private long cartID;
+    @OneToOne()
+    private Cart cart;
 
     @ManyToOne
     @JoinColumn
