@@ -7,15 +7,15 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Genre")
+@Table(name = "genre")
 @Data
 @NoArgsConstructor
-@AttributeOverride(name = "id", column = @Column(name = "account_details_id"))
+@AttributeOverride(name = "id", column = @Column(name = "genre_id"))
 public class Genre extends BaseEntity {
 
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "genre")
     private List<Movie> movie;
 
 

@@ -10,13 +10,15 @@ import java.util.List;
 @Table(name = "location")
 @Data
 @NoArgsConstructor
-@AttributeOverride(name = "id", column = @Column(name = "location_id"))
+@AttributeOverride(name = "id", column = @Column(name = "location.id"))
 public class Location extends BaseEntity {
 
     @OneToMany(mappedBy = "location")
     private List<Cinema> cinema;
-    private double latitude;
-    private double longitude;
+
+    private String name;
+    private Double latitude;
+    private Double longitude;
     private String country;
     private String city;
     private String state;
