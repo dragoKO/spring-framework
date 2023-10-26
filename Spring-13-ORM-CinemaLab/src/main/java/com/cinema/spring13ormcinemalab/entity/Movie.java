@@ -23,12 +23,17 @@ public class Movie extends BaseEntity {
     @JoinTable(name = "movieGenreRel",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id"))
-    private List<Genre> movie;
+    private List<Genre> genre;
 
     private String name;
     private double price;
+
+    @Enumerated(EnumType.STRING)
     private Type type;
+
+    @Enumerated(EnumType.STRING)
     private State state;
+
     private LocalDate releaseDate;
     private int duration;
     private String summary;

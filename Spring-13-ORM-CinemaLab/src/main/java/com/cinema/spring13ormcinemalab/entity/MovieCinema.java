@@ -15,13 +15,16 @@ import java.util.Set;
 public class MovieCinema extends BaseEntity {
 
     @ManyToOne
+    @JoinColumn(name = "movie_id")
     private Movie movie;
 
     @ManyToOne
+    @JoinColumn(name = "cinema_id")
     private Cinema cinema;
 
     @OneToMany(mappedBy = "movieCinema")
     private Set<Ticket> tickets;
 
+    @Column(name = "date_time")
     private LocalDateTime localDateTime;
 }

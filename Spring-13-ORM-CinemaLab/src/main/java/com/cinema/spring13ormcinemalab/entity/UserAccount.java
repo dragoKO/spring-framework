@@ -14,6 +14,7 @@ import java.util.Set;
 public class UserAccount extends BaseEntity {
 
     @OneToOne
+    @JoinColumn(name = "accountDetails_id")
     private AccountDetails accountDetails;
 
     @OneToMany(mappedBy = "userAccount")

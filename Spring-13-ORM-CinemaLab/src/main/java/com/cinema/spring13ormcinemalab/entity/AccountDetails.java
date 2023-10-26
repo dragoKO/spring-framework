@@ -25,7 +25,6 @@ public class AccountDetails extends BaseEntity {
     private Role role;
 
     @OneToOne(mappedBy = "accountDetails")
-    @JoinColumn(name="account_details_id")
     private UserAccount userAccount;
 
 }
