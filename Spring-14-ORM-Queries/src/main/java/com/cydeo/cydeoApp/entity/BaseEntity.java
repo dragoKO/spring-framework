@@ -1,7 +1,8 @@
 package com.cydeo.cydeoApp.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class BaseEntity {
