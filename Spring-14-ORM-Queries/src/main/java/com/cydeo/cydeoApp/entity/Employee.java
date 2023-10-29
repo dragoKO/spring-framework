@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
@@ -23,10 +24,11 @@ public class Employee extends BaseEntity {
 
     private Integer salary;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "department")
     private Department department;
 
-    @OneToOne
+    @ManyToOne
     private Region region;
 
 }
