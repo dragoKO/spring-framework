@@ -28,5 +28,11 @@ public class DataGenerator implements CommandLineRunner {
         List<Region> united = regionRepository.findRegionByCountryContainingIgnoreCase("united");
         System.out.println(united);
 
+        List<Region> regionByCountryContainingIgnoreCaseOrderByCountry = regionRepository.findByCountryContainingIgnoreCaseOrderByCountry("asia");
+        System.out.println(regionByCountryContainingIgnoreCaseOrderByCountry);
+
+        List<Region> top2ByCountry = regionRepository.findTop2ByCountry("Canada");
+        System.out.println(top2ByCountry);
+
     }
 }

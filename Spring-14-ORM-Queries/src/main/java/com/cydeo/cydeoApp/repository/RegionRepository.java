@@ -12,4 +12,8 @@ public interface RegionRepository extends JpaRepository<Region, Long> {
     List<Region> findDistinctByCountry(String country);
 
     List<Region> findRegionByCountryContainingIgnoreCase(String name);
+
+    List<Region> findByCountryContainingIgnoreCaseOrderByCountry(String name);
+
+    List<Region> findTop2ByCountry(String name);
 }
