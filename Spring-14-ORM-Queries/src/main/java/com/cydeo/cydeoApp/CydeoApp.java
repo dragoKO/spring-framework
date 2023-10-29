@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Bean;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-public class Spring14OrmQueriesApplication {
+public class CydeoApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(Spring14OrmQueriesApplication.class, args);
+        SpringApplication.run(CydeoApp.class, args);
     }
 
     @Bean
