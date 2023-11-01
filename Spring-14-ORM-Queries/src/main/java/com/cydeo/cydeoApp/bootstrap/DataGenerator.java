@@ -1,24 +1,31 @@
 package com.cydeo.cydeoApp.bootstrap;
 
+import com.cydeo.cydeoApp.entity.Course;
 import com.cydeo.cydeoApp.entity.Department;
 import com.cydeo.cydeoApp.entity.Employee;
 import com.cydeo.cydeoApp.entity.Region;
+import com.cydeo.cydeoApp.repository.CourseRepository;
 import com.cydeo.cydeoApp.repository.DepartmentRepository;
 import com.cydeo.cydeoApp.repository.EmployeeRepository;
 import com.cydeo.cydeoApp.repository.RegionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
+@Transactional
 public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
     private final EmployeeRepository employeeRepository;
+    private final CourseRepository courseRepository;
 
 
     @Override
@@ -69,11 +76,29 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("================JPQL====================");
         System.out.println(employeeRepository.getEmployeeDetail());
         System.out.println(employeeRepository.getEmployeeSalary());
-        if(employeeRepository.getEmployeeSalary("lolifauntx@dailymotion.com").isPresent())
+        if (employeeRepository.getEmployeeSalary("lolifauntx@dailymotion.com").isPresent())
             System.out.println(employeeRepository.getEmployeeSalary("lolifauntx@dailymotion.com").get());
 
 
-        System.out.println(employeeRepository.getEmployeeDetails(".com","Modesty"));
+        System.out.println(employeeRepository.getEmployeeDetails(".com", "Modesty"));
 
+        System.out.println("================Course====================");
+        List<Course> repositoryByCategory = courseRepository.findByCategory("Spring");
+        System.out.println(repositoryByCategory);
+
+        courseRepository.findByCategoryOrderByName("Spring").forEach(System.out::println);
+
+        System.out.println(courseRepository.existsByCategory("Spring"));
+
+        System.out.println("Stream");
+        System.out.println(courseRepository.streamByCategory("Spring").collect(Collectors.toList()));
+
+        System.out.println("================Native SQL====================");
+        System.out.println("employeeRepository.readEmployeeDetailBySalary(95313) = " + employeeRepository.readEmployeeDetailBySalary(95313));
+
+        Optional<List<Course>> spring = courseRepository.findAllByCategoryAndRatingGraterThat("Spring", 4);
+        System.out.println(spring);
+
+        employeeRepository.updateEmployee("testemail",1);
     }
 }

@@ -2,8 +2,11 @@ package com.cydeo.cydeoApp.repository;
 
 import com.cydeo.cydeoApp.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -43,6 +46,22 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.email LIKE CONCAT('%', ?1) AND e.firstName = ?2")
     Optional<List<Employee>> getEmployeeDetails(String domain, String firstName);
+
+    @Query("select e from Employee e where e.salary <> ?1")
+    Optional<List<Employee>> getEmployeeSalaryNotEqual(int salary);
+
+    @Query("select e from Employee e where e.firstName like ?1")
+    Optional<List<Employee>> getEmployeeFirstNameLike(String patter);
+
+//    pure sql
+
+    @Query(value = "select * from employees where salary = :salary", nativeQuery = true)
+    List<Employee> readEmployeeDetailBySalary(@Param("salary") int salary);
+
+    @Transactional
+    @Modifying
+    @Query("update Employee e set e.email = :email where e.id=:id")
+    void updateEmployee(@Param("email") String email, @Param("id") long id);
 
 
 }
