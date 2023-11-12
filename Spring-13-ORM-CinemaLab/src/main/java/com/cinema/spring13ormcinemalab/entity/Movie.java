@@ -2,7 +2,6 @@ package com.cinema.spring13ormcinemalab.entity;
 
 import com.cinema.spring13ormcinemalab.enums.State;
 import com.cinema.spring13ormcinemalab.enums.Type;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

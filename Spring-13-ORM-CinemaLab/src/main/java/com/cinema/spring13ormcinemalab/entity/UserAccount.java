@@ -1,6 +1,6 @@
 package com.cinema.spring13ormcinemalab.entity;
 
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
