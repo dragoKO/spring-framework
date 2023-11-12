@@ -3,7 +3,9 @@ package com.cinema.spring13ormcinemalab.entity;
 import com.cinema.spring13ormcinemalab.enums.State;
 import com.cinema.spring13ormcinemalab.enums.Type;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,12 +13,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "movie")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AttributeOverride(name = "id", column = @Column(name = "movie_id"))
 public class Movie extends BaseEntity {
 
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY)
     private List<MovieCinema> movieCinema;
 
     @ManyToMany
@@ -38,5 +41,16 @@ public class Movie extends BaseEntity {
     private int duration;
     private String summary;
 
-
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", type=" + type +
+                ", state=" + state +
+                ", releaseDate=" + releaseDate +
+                ", duration=" + duration +
+                ", summary='" + summary + '\'' +
+                '}';
+    }
 }

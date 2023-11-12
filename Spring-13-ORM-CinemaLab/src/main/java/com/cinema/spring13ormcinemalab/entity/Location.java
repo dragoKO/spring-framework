@@ -1,19 +1,22 @@
 package com.cinema.spring13ormcinemalab.entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "location")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AttributeOverride(name = "id", column = @Column(name = "location.id"))
 public class Location extends BaseEntity {
 
-    @OneToMany(mappedBy = "location")
+    @OneToMany(mappedBy = "location",fetch = FetchType.LAZY)
     private List<Cinema> cinema;
 
     private String name;
@@ -25,4 +28,17 @@ public class Location extends BaseEntity {
     private String postalCode;
     private String address;
 
+    @Override
+    public String toString() {
+        return "Location{" +
+                "name='" + name + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

@@ -1,14 +1,17 @@
 package com.cinema.spring13ormcinemalab.entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity()
+@Getter
+@Setter
 @Table(name = "user_account")
-@Data
 @NoArgsConstructor
 @AttributeOverride(name = "id", column = @Column(name = "user_account_id"))
 public class UserAccount extends BaseEntity {
@@ -24,5 +27,12 @@ public class UserAccount extends BaseEntity {
     private String password;
     private String username;
 
-
+    @Override
+    public String toString() {
+        return "UserAccount{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

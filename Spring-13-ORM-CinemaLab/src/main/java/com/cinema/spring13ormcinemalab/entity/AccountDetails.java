@@ -2,13 +2,16 @@ package com.cinema.spring13ormcinemalab.entity;
 
 import com.cinema.spring13ormcinemalab.enums.Role;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "account_details")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AttributeOverride(name = "id", column = @Column(name = "account_details_id"))
 public class AccountDetails extends BaseEntity {
@@ -27,4 +30,18 @@ public class AccountDetails extends BaseEntity {
     @OneToOne(mappedBy = "accountDetails")
     private UserAccount userAccount;
 
+    @Override
+    public String toString() {
+        return "AccountDetails{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", age=" + age +
+                ", postalCode=" + postalCode +
+                ", role=" + role +
+                ", userAccount=" + userAccount +
+                '}';
+    }
 }

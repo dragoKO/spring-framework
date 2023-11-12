@@ -1,7 +1,9 @@
 package com.cinema.spring13ormcinemalab.entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,7 +11,8 @@ import java.time.LocalDateTime;
 
 @Entity()
 @Table(name = "ticket")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AttributeOverride(name = "id", column = @Column(name = "ticket_id"))
 public class Ticket extends BaseEntity {
@@ -27,4 +30,13 @@ public class Ticket extends BaseEntity {
     private int seatNumber;
     private int rowNumber;
 
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "dateTime=" + dateTime +
+                ", seatNumber=" + seatNumber +
+                ", rowNumber=" + rowNumber +
+                '}';
+    }
 }
