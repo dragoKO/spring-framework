@@ -1,4 +1,4 @@
-package com.cinema.spring13ormcinemalab;
+package com.cinema;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

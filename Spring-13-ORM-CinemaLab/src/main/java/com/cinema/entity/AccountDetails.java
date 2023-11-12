@@ -1,6 +1,6 @@
-package com.cinema.spring13ormcinemalab.entity;
+package com.cinema.entity;
 
-import com.cinema.spring13ormcinemalab.enums.Role;
+import com.cinema.enums.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

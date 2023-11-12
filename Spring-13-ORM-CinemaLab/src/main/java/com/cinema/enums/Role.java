@@ -1,4 +1,4 @@
-package com.cinema.spring13ormcinemalab.enums;
+package com.cinema.enums;
 
 public enum Role {
 
