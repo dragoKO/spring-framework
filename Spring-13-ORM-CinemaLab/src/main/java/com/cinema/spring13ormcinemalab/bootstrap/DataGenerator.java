@@ -31,6 +31,15 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("============================================================================================");
         System.out.println(accountRepository.findAllByOrderByAge());
 
+        System.out.println("\n========= JPQL");
+        System.out.println("\naccountRepository.allAccounts() = " + accountRepository.allAccounts());
+        System.out.println("\naccountRepository.allAccountsByUserType(Role.USER) = " + accountRepository.allAccountsByUserType(Role.USER));
+        System.out.println("\naccountRepository.allAccountsSortedByAge() = " + accountRepository.allAccountsSortedByAge());
+
+        System.out.println("\n========= Native");
+        System.out.println("\naccountRepository.allAccountsWithAgeLowerThan(35) = " + accountRepository.allAccountsWithAgeLowerThan(35));
+        System.out.println("\naccountRepository.allAccountsByNameAddressCountryCityState(\"Buffalo\") = " + accountRepository.allAccountsByNameAddressCountryCityState("Buffalo"));
+
 
     }
 }
