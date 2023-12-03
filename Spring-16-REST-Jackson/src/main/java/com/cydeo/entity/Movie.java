@@ -1,6 +1,8 @@
 package com.cydeo.entity;
 
 
+import com.cydeo.enums.MovieState;
+import com.cydeo.enums.MovieType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,15 +27,15 @@ public class Movie extends BaseEntity {
     private String summary;
 
     @Enumerated(EnumType.STRING)
-    private Spring.MovieType type;
+    private MovieType type;
 
     @Enumerated(EnumType.STRING)
-    private Spring.MovieState state;
+    private MovieState state;
 
     private BigDecimal price;
 
     @ManyToMany
     @JoinTable(name = "movie_genre_rel", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "genre_id"))
-    private List<Spring.Genre> genreList;
+    private List<Genre> genreList;
 
 }

@@ -1,4 +1,5 @@
 package com.cydeo.entity;
+import com.cydeo.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,7 +28,7 @@ public class Account extends BaseEntity {
     private String postalCode;
 
     @Enumerated(EnumType.STRING)
-    private Spring.UserRole role = Spring.UserRole.USER;
+    private UserRole role = UserRole.USER;
 
     @OneToOne(mappedBy = "account")
     @JsonBackReference //is the back part of reference - it will be omitted from serialization
